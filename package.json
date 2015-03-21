@@ -2,7 +2,7 @@
   "name": "stream-valve",
   "version": "1.0.1",
   "description": "Ensure that a stream disconnects if it goes over `maxBytes` `perSeconds`",
-  "main": "vavle.js",
+  "main": "valve.js",
   "scripts": {
     "test": "mocha -t 3000 *.test.js && check-build"
   },
