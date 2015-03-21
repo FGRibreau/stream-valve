@@ -1,7 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
-
 /**
  * Ensure that the stream disconnects if it goes over `maxBytes` `perSeconds`
  * @param  {Stream} stream
@@ -14,7 +12,7 @@ function valve(stream, maxBytes, perSeconds) {
   var bytesReceived = 0;
   var lastBytesRead = 0;
 
-  stream._read = _.wrap(stream._read, function (_read, n) {
+  stream._read = _wrap(stream._read, function (_read, n) {
     var now = Date.now();
 
     var totalMs = now - lastTime;
@@ -37,6 +35,12 @@ function valve(stream, maxBytes, perSeconds) {
   });
 
   return stream;
+}
+
+function _wrap(f, wrapper) {
+  return function __wrapped__func__() {
+    return wrapper.apply(this, [f].concat(Array.prototype.slice(arguments)));
+  };
 }
 
 module.exports = valve;
