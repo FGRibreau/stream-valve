@@ -10,6 +10,8 @@ npm install stream-valve
 # Usage
 
 ```javascript
+var valve = require('stream-valve');
+
 socket = net.connect(6379, '127.0.0.1');
 
 socket.on('error', function(err){
@@ -19,6 +21,10 @@ socket.on('error', function(err){
 
 // disconnect the socket if it receive more than 1MB per 2 seconds
 valve(socket, 1024 * 1024, 2);
+
+socket.on('data', function(){
+    // ...
+});
 ```
 
 <p align="center">
