@@ -15,7 +15,6 @@ var RedisClient = Redis.RedisClient;
 var t = require('chai').assert;
 var async = require('async');
 var net = require('net');
-var _ = require('lodash');
 
 describe('Valve', function () {
   it('should yield a usable read/write stream', function (done) {
@@ -42,8 +41,8 @@ describe('Valve', function () {
         redis.flushdb(function (err) {
           t.strictEqual(err, null);
 
-          async.forEach(_.range(0, 3), function (a, f) {
-            var keys = _.range(0, 50000).map(function () {
+          async.forEach(range(0, 3), function (a, f) {
+            var keys = range(0, 50000).map(function () {
               return [Math.random() * 10000000000 + '', 1];
             });
 
@@ -80,3 +79,11 @@ describe('Valve', function () {
     });
   });
 });
+
+function range(s, e) {
+  var out = [];
+  for (var i = e - 1; i >= s; i--) {
+    out.push(1);
+  }
+  return out;
+}
