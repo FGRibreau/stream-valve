@@ -71,9 +71,7 @@ describe('Valve', function () {
         });
 
         redis.on('ready', function () {
-          console.log('go go go');
           redis.keys('*', function (err, keys) {
-            console.log('go go goa');
             t.include(err.message, 'ESOCKETOVERFLOW');
             t.deepEqual(keys, undefined);
             redis.end();
