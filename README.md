@@ -1,4 +1,4 @@
-# stream-valve [![Deps](https://david-dm.org/FGRibreau/stream-valve.png)](https://david-dm.org/FGRibreau/stream-valve) [![Version](http://badge.fury.io/js/stream-valve.png)](https://david-dm.org/FGRibreau/stream-valve)
+# stream-valve [![Deps](https://david-dm.org/FGRibreau/stream-valve.png)](https://david-dm.org/FGRibreau/stream-valve) [![Version](http://badge.fury.io/js/stream-valve.png)](https://david-dm.org/FGRibreau/stream-valve)  [![Version](https://travis-ci.org/FGRibreau/stream-valve.svg)](https://travis-ci.org/FGRibreau/stream-valve)
 
 Ensure that a stream disconnects if it goes over `maxBytes` `perSeconds`
 

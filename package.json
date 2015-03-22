@@ -4,7 +4,7 @@
   "description": "Ensure that a stream disconnects if it goes over `maxBytes` `perSeconds`",
   "main": "valve.js",
   "scripts": {
-    "test": "mocha -t 3000 *.test.js && check-build"
+    "test": "mocha -t 60000 *.test.js && check-build"
   },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",

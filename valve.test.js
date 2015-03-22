@@ -4,7 +4,8 @@ var valve = require('./valve');
 var config = require('common-env')(console).getOrElseAll({
   redis: {
     port: 6379,
-    host: '127.0.0.1'
+    host: '127.0.0.1',
+    auth: ''
   }
 });
 
@@ -23,6 +24,7 @@ describe('Valve', function () {
       var redis = new RedisClient(throttledSocket, {
         enable_offline_queue: false
       });
+      redis.auth(config.redis.auth);
 
       redis.on('ready', function () {
         redis.end();
@@ -36,7 +38,8 @@ describe('Valve', function () {
   describe('with a very large read', function () {
 
     beforeEach(function (done) {
-      var redis = Redis.createClient();
+      var redis = Redis.createClient(config.redis.port, config.redis.host);
+      redis.auth(config.redis.auth);
       redis.on('ready', function () {
         redis.flushdb(function (err) {
           t.strictEqual(err, null);
@@ -46,7 +49,7 @@ describe('Valve', function () {
               return [Math.random() * 10000000000 + '', 1];
             });
 
-            redis.mset(keys, function (err) {
+            redis.mset(keys, function (err, n) {
               t.strictEqual(err, null);
               f();
             });
@@ -56,10 +59,11 @@ describe('Valve', function () {
     })
 
     it('should disconnect the socket', function (done) {
-      var throttledSocket = valve(net.connect(6379, '127.0.0.1', function () {
+      var throttledSocket = valve(net.connect(config.redis.port, config.redis.host, function () {
         var redis = new RedisClient(throttledSocket, {
           enable_offline_queue: false
         });
+        redis.auth(config.redis.auth);
 
         redis.on('error', function (err) {
           t.include(err.message, 'ESOCKETOVERFLOW');
@@ -67,7 +71,9 @@ describe('Valve', function () {
         });
 
         redis.on('ready', function () {
+          console.log('go go go');
           redis.keys('*', function (err, keys) {
+            console.log('go go goa');
             t.include(err.message, 'ESOCKETOVERFLOW');
             t.deepEqual(keys, undefined);
             redis.end();
