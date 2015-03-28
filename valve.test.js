@@ -35,6 +35,17 @@ describe('Valve', function () {
     });
   });
 
+  it('should forward _read arguments', function (done) {
+    var N = 2048;
+    var socket = {
+      _read: function (n) {
+        t.strictEqual(n, N);
+        done();
+      }
+    };
+    valve(socket)._read(N);
+  });
+
   describe('with a very large read', function () {
 
     beforeEach(function (done) {

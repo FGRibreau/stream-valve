@@ -39,7 +39,7 @@ function valve(stream, maxBytes, perSeconds) {
 
 function _wrap(f, wrapper) {
   return function wrappedFunc() {
-    return wrapper.apply(this, [f].concat(Array.prototype.slice(arguments)));
+    return wrapper.apply(this, [f].concat(Array.prototype.slice.call(arguments)));
   };
 }
 
