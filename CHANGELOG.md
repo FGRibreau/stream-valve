@@ -1,8 +1,8 @@
 # Change Log
 
-## [Unreleased](https://github.com/fgribreau/stream-valve/tree/HEAD)
+## [v1.0.3](https://github.com/fgribreau/stream-valve/tree/v1.0.3) (2015-03-28)
 
-[Full Changelog](https://github.com/fgribreau/stream-valve/compare/v1.0.2...HEAD)
+[Full Changelog](https://github.com/fgribreau/stream-valve/compare/v1.0.2...v1.0.3)
 
 **Closed issues:**
 
