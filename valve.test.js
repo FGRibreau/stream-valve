@@ -1,7 +1,9 @@
 'use strict';
 var valve = require('./valve');
 
-var config = require('common-env')(console).getOrElseAll({
+var env = require('common-env');
+env.DISPLAY_LOG = false;
+var config = env(console).getOrElseAll({
   redis: {
     port: 6379,
     host: '127.0.0.1',
