@@ -2,6 +2,13 @@
 
 Ensure that a stream disconnects if it goes over `maxBytes` `perSeconds`
 
+### Sponsored by
+
+<p align="center">
+<strong>Stream-valve</strong> development was sponsored by <strong><a href="https://redsmin.com">Redsmin</a>, a fully loaded administration service for Redis</strong>.<br/><br/>
+<a href="https://redsmin.com"><img src="https://redsmin.com/logo/rect-large-color-transparent@256.png"></a>
+</p>
+
 # Setup
 
 ```
