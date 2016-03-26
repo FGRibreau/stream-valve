@@ -42,3 +42,7 @@ socket.on('data', function(){
 </p>
 
 # [Changelog](/CHANGELOG.md)
+
+# Donate
+
+I maintain this project in my free time, if it helped you please support my work via [paypal](https://paypal.me/fgribreau) or [bitcoins](https://www.coinbase.com/fgribreau), thanks a lot!
